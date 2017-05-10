@@ -1,8 +1,13 @@
 {
-	"folders":
-	[
-		{
-			"path": "."
-		}
-	]
+  "folders":
+  [
+    {
+      "name": "root",
+      "path": ".",
+      "folder_exclude_patterns": ["*"]
+    },
+    {
+      "path": "src",
+    }
+  ]
 }
