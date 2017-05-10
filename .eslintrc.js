@@ -1,6 +1,6 @@
 module.exports = {
   "parser": "babel-eslint",
-  "env": {                                                                          
+  "env": {
     "browser": true,
     "node": true,
     "jest": true,
@@ -17,5 +17,6 @@ module.exports = {
     "no-bitwise": "off",
     "react/prop-types": "off",
     "react/prefer-stateless-function": "off",
+    "linebreak-style": "off",
   }
 };
