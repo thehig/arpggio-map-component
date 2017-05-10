@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react'; //eslint-disable-line
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-// import MapContainer from './components/map-container';
+import MapContainer from './components/map-container';
 
 class App extends PureComponent {
   static propTypes = {
-    // height: PropTypes.number.isRequired,
-    // width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
   };
   static defaultProps = {};
 
@@ -16,9 +16,9 @@ class App extends PureComponent {
 
   render() {
     return (
-      <div>
+      <MapContainer>
         App
-      </div>
+      </MapContainer>
     );
   }
 }

@@ -18,5 +18,6 @@ module.exports = {
     "react/prop-types": "off",
     "react/prefer-stateless-function": "off",
     "linebreak-style": "off",
+    "no-useless-constructor": "warn",
   }
 };
