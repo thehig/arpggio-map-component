@@ -17,8 +17,7 @@ module.exports = {
     "no-bitwise": "off",
     "react/prop-types": "off",
     "react/prefer-stateless-function": "off",
-
-    "linebreak-style": "off"
-    // "no-useless-constructor": "off"
+    "linebreak-style": "off",
+    "no-useless-constructor": "warn"
   }
 };

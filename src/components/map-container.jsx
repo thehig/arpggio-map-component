@@ -1,12 +1,12 @@
-import React from 'react'; //eslint-disable-line
-
 import styled from 'styled-components';
 
-const MapContainer = styled.div`
-  // background: red;
+const MapLayer = styled.div`
+  width: ${props => props.width}px;
+  height: ${props => props.height}px;
   overflow: hidden;
-  border: 1px solid black;
-  padding: 5px;
 `;
 
-export default MapContainer;
+export const MapContainer = styled(MapLayer)`
+  background: red;
+  border: 1px solid black;
+`;
