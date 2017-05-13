@@ -8,6 +8,11 @@
     },
     {
       "path": "src",
+      "file_exclude_patterns": [
+        "*.test.*",
+        "*.css",
+        // "index.js",
+      ]
     }
   ]
 }
