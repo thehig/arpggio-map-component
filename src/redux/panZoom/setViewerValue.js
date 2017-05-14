@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 
 import {
   SET_VIEWER_VALUE,
-} from './common/constants';
+} from '../common/constants';
 
 // Action Creator
 export function setViewerValue(value) {

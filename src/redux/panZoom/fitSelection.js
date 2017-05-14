@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 
 import {
   FIT_SELECTION,
-} from './common/constants';
+} from '../common/constants';
 
 // Action Creator
 export function fitSelection(

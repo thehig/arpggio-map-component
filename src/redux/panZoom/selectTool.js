@@ -11,7 +11,7 @@ import {
   SELECT_TOOL_PAN,
   SELECT_TOOL_ZOOM_IN,
   SELECT_TOOL_ZOOM_OUT,
-} from './common/constants';
+} from '../common/constants';
 
 // Action Creator
 export function selectTool(tool) {

@@ -4,13 +4,13 @@ import {
   selectToolPan,
   selectToolZoomIn,
   selectToolZoomOut,
-} from '../selectTool';
+} from '../panZoom/selectTool';
 
-import { fitSelection } from '../fitSelection';
-import { fitToViewer } from '../fitToViewer';
-import { panViewer } from '../panViewer';
-import { setViewerValue } from '../setViewerValue';
-import { zoomOnViewerCenter } from '../zoomOnViewerCenter';
+import { fitSelection } from '../panZoom/fitSelection';
+import { fitToViewer } from '../panZoom/fitToViewer';
+import { panViewer } from '../panZoom/panViewer';
+import { setViewerValue } from '../panZoom/setViewerValue';
+import { zoomOnViewerCenter } from '../panZoom/zoomOnViewerCenter';
 
 export {
   selectTool,

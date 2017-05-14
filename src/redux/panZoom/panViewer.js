@@ -3,7 +3,7 @@ import { pan } from 'react-svg-pan-zoom';
 
 import {
   PAN_VIEWER,
-} from './common/constants';
+} from '../common/constants';
 
 // Action Creator
 export function panViewer(deltaX, deltaY) {

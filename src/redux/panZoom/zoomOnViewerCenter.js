@@ -3,7 +3,7 @@ import { zoomOnViewerCenter as zoomOnViewerCenterSVG } from 'react-svg-pan-zoom'
 
 import {
   ZOOM_ON_VIEWER_CENTER,
-} from './common/constants';
+} from '../common/constants';
 
 // Action Creator
 export function zoomOnViewerCenter(scaleFactor) {

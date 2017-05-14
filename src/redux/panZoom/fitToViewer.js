@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 
 import {
   FIT_TO_VIEWER,
-} from './common/constants';
+} from '../common/constants';
 
 // Action Creator
 export function fitToViewer() {
