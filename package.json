@@ -6,6 +6,7 @@
     "prop-types": "^15.5.9",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-svg-pan-zoom": "^2.7.0",
     "styled-components": "^1.4.6"
   },
   "devDependencies": {

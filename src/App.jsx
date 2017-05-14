@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { MapContainer } from './components/map-container';
+// import { MapContainer } from './components/map-container';
+import { PanZoomDemo } from './components/PanZoomDemo';
 
 class App extends PureComponent {
   static propTypes = {
@@ -17,18 +18,19 @@ class App extends PureComponent {
     super(props);
   }
 
-  render() {
-    const mapContainerProps = {
-      width: this.props.width,
-      height: this.props.height,
-    };
+  // render() {
+  //   const mapContainerProps = {
+  //     width: this.props.width,
+  //     height: this.props.height,
+  //   };
 
-    return (
-      <MapContainer {...mapContainerProps} >
-        App
-      </MapContainer>
-    );
-  }
+  //   return (
+  //     <MapContainer {...mapContainerProps} >
+  //       App
+  //     </MapContainer>
+  //   );
+  // }
+  render = () => <PanZoomDemo />;
 }
 
 export default App;
