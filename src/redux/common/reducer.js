@@ -1,8 +1,18 @@
 import initialState from './initialState';
-import { reducer as sampleAction } from '../sampleAction';
+import { reducer as fitSelection } from '../fitSelection';
+import { reducer as fitToViewer } from '../fitToViewer';
+import { reducer as panViewer } from '../panViewer';
+import { reducer as selectTool } from '../selectTool';
+import { reducer as setViewerValue } from '../setViewerValue';
+import { reducer as zoomOnViewerCenter } from '../zoomOnViewerCenter';
 
 const reducers = [
-  sampleAction,
+  fitSelection,
+  fitToViewer,
+  panViewer,
+  selectTool,
+  setViewerValue,
+  zoomOnViewerCenter,
 ];
 
 export default function reducer(state = initialState, action) {
