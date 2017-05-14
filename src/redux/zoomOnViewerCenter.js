@@ -1,12 +1,12 @@
 import { fromJS } from 'immutable';
-import { zoomOnViewerCenter } from 'react-svg-pan-zoom';
+import { zoomOnViewerCenter as zoomOnViewerCenterSVG } from 'react-svg-pan-zoom';
 
 import {
   ZOOM_ON_VIEWER_CENTER,
 } from './common/constants';
 
 // Action Creator
-export function fitSelection(scaleFactor) {
+export function zoomOnViewerCenter(scaleFactor) {
   return {
     type: ZOOM_ON_VIEWER_CENTER,
     meta: {
@@ -20,7 +20,7 @@ export function reducer(state, action) {
   switch (action.type) {
     case ZOOM_ON_VIEWER_CENTER: {
       const viewerValue = state.get('viewerValue') ? state.get('viewerValue').toJS() : null;
-      return state.set('viewerValue', fromJS(zoomOnViewerCenter(viewerValue, action.meta.scaleFactor)));
+      return state.set('viewerValue', fromJS(zoomOnViewerCenterSVG(viewerValue, action.meta.scaleFactor)));
     }
     default:
       return state;
