@@ -1,5 +1,7 @@
 import { fromJS } from 'immutable';
 
+import { fitToViewer as fitToViewerSVG } from 'react-svg-pan-zoom';
+
 import {
   FIT_TO_VIEWER,
 } from '../common/constants';
@@ -16,7 +18,7 @@ export function reducer(state, action) {
   switch (action.type) {
     case FIT_TO_VIEWER: {
       const viewerValue = state.get('viewerValue') ? state.get('viewerValue').toJS() : null;
-      return state.set('viewerValue', fromJS(fitToViewer(viewerValue)));
+      return state.set('viewerValue', fromJS(fitToViewerSVG(viewerValue)));
     }
     default:
       return state;
