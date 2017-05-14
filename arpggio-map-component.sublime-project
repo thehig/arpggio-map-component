@@ -12,7 +12,11 @@
         "*.test.*",
         "*.css",
         // "index.js",
-      ]
+      ],
+      "folder_exclude_patterns": ["redux"]
+    },
+    {
+      "path": "src/redux"
     }
   ]
 }

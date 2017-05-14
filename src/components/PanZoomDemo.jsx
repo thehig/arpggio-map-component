@@ -1,7 +1,12 @@
 import React from 'react';
 import { ReactSVGPanZoom } from 'react-svg-pan-zoom';
 
-export class PanZoomDemo extends React.Component {
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import * as actions from '../redux/common/actions';
+
+class PanZoomDemo extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.Viewer = null;
@@ -10,6 +15,9 @@ export class PanZoomDemo extends React.Component {
     this.Viewer.fitToViewer();
   }
   render() {
+    const { counter } = this.props.data;
+    const clickCounter = () => this.props.actions.sampleAction();
+
     const zoomIn = (/* event */) => this.Viewer.zoomOnViewerCenter(1.1);
     const zoomArea = (/* event */) => this.Viewer.fitSelection(40, 40, 200, 200);
     const fitToViewer = (/* event */) => this.Viewer.fitToViewer();
@@ -19,6 +27,10 @@ export class PanZoomDemo extends React.Component {
 
     return (
       <div>
+
+        <button onClick={clickCounter}>Clicks: {counter}</button>
+        <hr />
+
         <button onClick={zoomIn}>Zoom in</button>
         <button onClick={zoomArea}>Zoom area</button>
         <button onClick={fitToViewer}>Fit</button>
@@ -41,3 +53,23 @@ export class PanZoomDemo extends React.Component {
     );
   }
 }
+
+
+/* istanbul ignore next */
+function mapStateToProps(state) {
+  return {
+    data: state.data,
+  };
+}
+
+/* istanbul ignore next */
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators({ ...actions }, dispatch),
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(PanZoomDemo);
