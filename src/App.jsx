@@ -1,34 +1,13 @@
-import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { Provider } from 'react-redux';
+// import PropTypes from 'prop-types';
+import { store } from './redux/common/store';
+import ReduxPanZoomDemo from './components/ReduxPanZoomDemo';
 
-import { MapContainer } from './components/map-container';
-
-class App extends PureComponent {
-  static propTypes = {
-    height: PropTypes.number,
-    width: PropTypes.number,
-  };
-  static defaultProps = {
-    height: 640,
-    width: 480,
-  };
-
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const mapContainerProps = {
-      width: this.props.width,
-      height: this.props.height,
-    };
-
-    return (
-      <MapContainer {...mapContainerProps} >
-        App
-      </MapContainer>
-    );
-  }
-}
+const App = () => (
+  <Provider store={store}>
+    <ReduxPanZoomDemo />
+  </Provider>
+);
 
 export default App;
