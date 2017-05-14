@@ -2,6 +2,7 @@
   "name": "arpggio-map-component",
   "version": "0.1.0",
   "private": false,
+  "main": "src/export.js",
   "dependencies": {
     "immutable": "^3.8.1",
     "prop-types": "^15.5.9",
