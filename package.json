@@ -16,10 +16,12 @@
     "classnames": "^2.1.2",
     "immutable": "^3.8.1",
     "react": "^0.14.9",
+    "react-dom": "^0.14.0",
     "react-redux": "^5.0.4",
     "react-svg-pan-zoom": "^2.7.0",
     "redux": "^3.6.0",
-    "redux-logger": "^3.0.1"
+    "redux-logger": "^3.0.1",
+    "styled-components": "^1.4.6"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -31,8 +33,7 @@
     "eslint-plugin-react": "^6.9.0",
     "gulp": "^3.9.0",
     "react": "^0.14.9",
-    "react-component-gulp-tasks": "^0.7.6",
-    "react-dom": "^0.14.0"
+    "react-component-gulp-tasks": "^0.7.6"
   },
   "peerDependencies": {
     "react": "^0.14.9"
@@ -42,8 +43,7 @@
   },
   "scripts": {
     "build": "gulp clean && NODE_ENV=production gulp build",
-    "examples": "gulp dev:server",
-    "lint": "eslint src --ext js --ext jsx",
+    "lint": "eslint . --ext js --ext jsx",
     "publish:site": "NODE_ENV=production gulp publish:examples",
     "release": "NODE_ENV=production gulp release",
     "start": "gulp dev",
