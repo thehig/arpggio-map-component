@@ -1,58 +1,56 @@
-import React, { Component } from 'react';
-import { ReactSVGPanZoom, TOOL_NONE, fitSelection, zoomOnViewerCenter, fitToViewer } from 'react-svg-pan-zoom';
+import React from 'react';
+import { ReactSVGPanZoom } from 'react-svg-pan-zoom';
+import PropTypes from 'prop-types';
 
-class App extends Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      value: null,
-      tool: TOOL_NONE,
-    };
-  }
-
-  componentDidMount() {
-    this.Viewer.fitToViewer();
-  }
-
+class App extends React.PureComponent {
   render() {
-    return (
-      <div>
-        <button
-          onClick={(/* event */) =>
-            this.setState({ value: zoomOnViewerCenter(this.state.value, 1.1) })}
-        >
-          Zoom in
-        </button>
-        <button
-          onClick={(/* event */) =>
-            this.setState({ value: fitSelection(this.state.value, 40, 40, 200, 200) })}
-        >
-          Zoom area 200x200
-        </button>
-        <button
-          onClick={(/* event */) =>
-            this.setState({ value: fitToViewer(this.state.value) })}
-        >
-          Fit
-        </button>
+    const { state, actions } = this.props;
 
-        <hr />
+    const viewerValue = state.get('viewerValue') ? state.get('viewerValue').toJS() : null;
+    const viewerTool = state.get('viewerTool');
+
+    const onZoomInClick = (/* event */) => actions.zoomOnViewerCenter(1.1);
+    const onZoomOutClick = (/* event */) => actions.zoomOnViewerCenter(0.9);
+    const onFitToViewerClick = (/* event */) => actions.fitToViewer();
+
+    const onPanUpClick = (/* event */) => actions.pan(0, -20);
+    const onPanRightClick = (/* event */) => actions.pan(20, 0);
+    const onPanDownClick = (/* event */) => actions.pan(0, 20);
+    const onPanLeftClick = (/* event */) => actions.pan(-20, 0);
+
+    const onSelectToolNoneClick = (/* event */) => actions.selectToolNone();
+    const onSelectToolPanClick = (/* event */) => actions.selectToolPan();
+    const onSelectToolZoomInClick = (/* event */) => actions.selectToolZoomIn();
+    const onSelectToolZoomOutClick = (/* event */) => actions.selectToolZoomOut();
+
+    const onChangeValue = value => actions.setValue(value);
+    const onChangeTool = tool => actions.selectTool(tool);
+
+    return (
+      <div style={{ margin: '20px' }}>
+        <button onClick={onZoomInClick}>Zoom in</button>
+        <button onClick={onZoomOutClick}>Zoom out</button>
+        <button onClick={onFitToViewerClick}>Fit to viewer</button>
+        <br />
+        <button onClick={onPanUpClick}>Up</button>
+        <button onClick={onPanRightClick}>Right</button>
+        <button onClick={onPanDownClick}>Down</button>
+        <button onClick={onPanLeftClick}>Left</button>
+        <br />
+        <button onClick={onSelectToolNoneClick}>Select tool none</button>
+        <button onClick={onSelectToolPanClick}>Select tool pan</button>
+        <button onClick={onSelectToolZoomInClick}>Select tool zoom in</button>
+        <button onClick={onSelectToolZoomOutClick}>Select tool zoom out</button>
+        <br />
 
         <ReactSVGPanZoom
-          width={400}
-          height={400}
-          style={{ border: '1px solid black' }}
-          ref={Viewer => (this.Viewer = Viewer)}
-
-          onClick={event => console.log('click', event.x, event.y, event.originalEvent)}
-          onMouseUp={event => console.log('up', event.x, event.y)}
-          onMouseMove={event => console.log('move', event.x, event.y)}
-          onMouseDown={event => console.log('down', event.x, event.y)}
-
-          value={this.state.value}
-          onChangeValue={value => this.setState({ value })}
-          tool={this.state.tool}
-          onChangeTool={tool => this.setState({ tool })}
+          width={500}
+          height={500}
+          value={viewerValue}
+          onChangeValue={onChangeValue}
+          tool={viewerTool}
+          onChangeTool={onChangeTool}
+          style={{ outline: '1px solid black' }}
         >
 
           <svg width={800} height={800}>
@@ -67,5 +65,10 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  state: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired,
+};
 
 export default App;
