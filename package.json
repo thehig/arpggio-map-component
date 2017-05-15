@@ -1,6 +1,6 @@
 {
   "name": "arpggio-map-component",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "arpggio-map-component",
   "main": "lib/ArpggioMapComponent.js",
   "author": "David Higgins",
