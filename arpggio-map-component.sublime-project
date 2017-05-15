@@ -4,19 +4,16 @@
     {
       "name": "root",
       "path": ".",
-      "folder_exclude_patterns": ["*"]
+      "folder_exclude_patterns": ["src", "example", "node_modules"],
+      "file_exclude_patterns": ["yarn.lock", ".editorconfig", "bower.json"]
     },
     {
       "path": "src",
-      "file_exclude_patterns": [
-        "*.test.*",
-        "*.css",
-        // "index.js",
-      ],
-      "folder_exclude_patterns": ["redux"]
+      "file_exclude_patterns": []
     },
     {
-      "path": "src/redux"
+      "path": "example",
+      "folder_exclude_patterns": ["dist"]
     }
   ]
 }
