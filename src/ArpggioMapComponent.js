@@ -1,15 +1,53 @@
 import React, { PureComponent } from 'react';
-// import { ReactSVGPanZoom } from 'react-svg-pan-zoom';
-// import PropTypes from 'prop-types';
+import { ReactSVGPanZoom, TOOL_NONE } from 'react-svg-pan-zoom';
+import PropTypes from 'prop-types';
 
 
-class App extends PureComponent {
+class ArpggioMapComponent extends PureComponent {
   render() {
-    return <div>App</div>;
+    const {
+      width,
+      height,
+      viewerValue,
+      viewerTool,
+      onSetViewer,
+      onChangeValue,
+      onChangeTool,
+    } = this.props;
+
+    return (
+      <ReactSVGPanZoom
+        ref={onSetViewer}
+        width={width}
+        height={height}
+        value={viewerValue}
+        onChangeValue={onChangeValue}
+        tool={viewerTool}
+        onChangeTool={onChangeTool}
+        style={{ outline: '1px solid black' }}
+      >
+        { this.props.children }
+      </ReactSVGPanZoom>
+    );
   }
 }
 
-App.propTypes = {};
+ArpggioMapComponent.propTypes = {
+  // viewerValue: PropTypes.object.isRequired,
+  onChangeValue: PropTypes.func.isRequired,
+  onChangeTool: PropTypes.func.isRequired,
+  onSetViewer: PropTypes.func,
+  viewerTool: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
+};
+
+ArpggioMapComponent.defaultProps = {
+  viewerTool: TOOL_NONE,
+  width: 640,
+  height: 480,
+  onSetViewer: Viewer => Viewer,
+};
 
 // class App extends React.PureComponent {
 //   render() {
@@ -80,4 +118,4 @@ App.propTypes = {};
 //   actions: PropTypes.object.isRequired,
 // };
 
-export default App;
+export default ArpggioMapComponent;
